@@ -1,0 +1,36 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Iniciar sesión</h1>
+    
+    {% if app.request.cookies.has('newUser') %}
+        <div class="blogger-notice">Inicio de sesión con éxtio.</div>
+    {% endif %}
+
+    <form class="blogger" action="/login" method="post">
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <input name="login" type="submit" value="Iniciar sesión">
+        </div>
+    </form>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            {% if profile == "Invitado" %}
+                <li><a href="/login">Login</a></li>
+            {% else %}
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Sobre este blog</h1>
+    <p>Bienvenido a Symblog 2DAW, tu destino definitivo para explorar el 
+        fascinante mundo de la informática, la programación y la tecnología. En Symblog 2DAW, 
+        estamos comprometidos con la misión de proporcionar contenido de alta calidad, recursos 
+        educativos y análisis perspicaces para la comunidad de estudiantes y profesionales de la 
+        informática.</p>
+            
+    <p>Nuestro equipo está formado por apasionados expertos en el campo de la programación y el 
+        desarrollo web, con una amplia experiencia en la enseñanza y la práctica de la informática. 
+        Desde lenguajes de programación como Python, JavaScript y Java, hasta frameworks como React, 
+        Angular y Django, estamos aquí para ayudarte a dominar las habilidades necesarias para triunfar 
+        en la industria tecnológica en constante evolución.</p>
+            
+    <p>En Symblog 2DAW, creemos en el poder de la educación y el aprendizaje colaborativo. Nuestra 
+        plataforma no solo ofrece tutoriales detallados y guías paso a paso, sino que también fomenta 
+        la participación activa de nuestra comunidad de lectores. Nos encanta escuchar tus preguntas, 
+        comentarios y sugerencias, y nos esforzamos por crear un entorno inclusivo donde todos puedan 
+        aprender y crecer juntos.</p>
+            
+    <p>Ya sea que estés comenzando tu viaje en el mundo de la programación o buscando perfeccionar 
+        tus habilidades existentes, Symblog 2DAW tiene algo para ti. Desde consejos prácticos para 
+        resolver problemas de codificación hasta análisis en profundidad de las últimas tendencias 
+        tecnológicas, estamos aquí para ser tu guía confiable en este emocionante viaje.</p>
+            
+    <p>Únete a nosotros en Symblog 2DAW y descubre el potencial ilimitado de la informática y la 
+        tecnología. Juntos, podemos construir un futuro digital más brillante y lleno de posibilidades. 
+        ¡Bienvenido a nuestra comunidad!</p>  
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}

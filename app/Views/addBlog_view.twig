@@ -1,0 +1,55 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            {% if profile == "Invitado" %}
+                <li><a href="/login">Login</a></li>
+            {% else %}
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Crea un blog</h1>
+
+    {% if cookie is not null %}
+        <div class="blogger-notice">Blog creado con éxito.</div>
+    {% endif %}
+
+    <form class="blogger" action="/blogs" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div>
+            <label for="desc">Descripción:</label>
+            <textarea id="desc" name="desc"></textarea>
+        </div>
+        <div>
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags">
+        </div>
+        <div>
+            <label for="image">Imagen:</label>
+            <input type="file" id="image" name="image">
+        </div>
+        <div>
+            <label for="author">Autor:</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <div>
+            <input name="create" type="submit" value="Enviar">
+        </div>
+    </form>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}
