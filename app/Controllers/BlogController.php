@@ -4,8 +4,6 @@
     use App\Models\Comment;
     use \Respect\Validation\Validator as v;
 
-    include "../app/Config/lib.php";
-
     class BlogController extends BaseController{
         public function blogsAction($request){
             if ($request->getMethod() == "POST"){
@@ -59,8 +57,8 @@
             }
 
             $data["blog"] = Blog::find($_GET["id"]);
-            $data["allComments"] = array_reverse(array_slice(getAllComments(Blog::all()), -5));
-            $data["tags"] = printTags();
+            $data["allComments"] = array_reverse(array_slice(Blog::getAllComments(Blog::all()), -5));
+            $data["tags"] = Blog::printTags();
 
             $user = ($_SESSION["user"] !== "Invitado") ? $_SESSION["user"]->user : "Invitado";
             $email = ($_SESSION["user"] !== "Invitado") ? $_SESSION["user"]->email : "Invitado";
@@ -77,6 +75,4 @@
                 "email" => $email
             ]);
         }
-
-        
     }
